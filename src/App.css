@@ -1,38 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    --accent: hsl(1deg 71% 52%);
+    --green: hsl(76deg 100% 39%);
+    --blue: hsl(205deg 69% 49%);
+    --purple: hsl(237deg 43% 60%);
+    --background-2: hsl(192deg 100% 8%);
+    --background: hsl(192deg 100% 5%);
+    --foreground: hsl(46deg 42% 88%);
+}
+
+* {
+    font-size: 1rem;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    user-select: none;
+    outline: none;
+    color: var(--foreground);
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    width: 100vw;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+}
+
 .App {
-  text-align: center;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    width: 100vw;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+    font-size: 15vw;
+    color: var(--accent);
+    font-family: "Pacifico", cursive;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+    font-size: 3rem;
+    color: var(--foreground);
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+    font-size: 1.2rem;
+    color: var(--foreground);
+    width: 100%;
+    text-align: center;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    width: calc(100% - 100px);
+    max-width: 800px;
+    padding: 50px;
+    background-color: var(--background);
+    gap: 30px;
+}
+
+.project-card {
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--background-2);
+    margin-top: 40px;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.project-card h3 {
+    font-size: 3rem;
+    line-height: 8rem;
+    padding: 0px;
+    margin: 0px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 2rem;
+    letter-spacing: 1px;
+    text-wrap: pretty;
+}
+
+@media (max-width: 768px) {
+    .project-card p {
+        font-size: 0.8rem;
+        line-height: 1.5rem;
+    }
+
+    .project-card h3 {
+        font-size: 2rem;
+        line-height: 4rem;
+    }
 }
