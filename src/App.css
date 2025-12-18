@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Pacifico&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-    --accent: hsl(1deg 71% 52%);
+    --accent: hsl(76deg 100% 39%);
     --green: hsl(76deg 100% 39%);
     --blue: hsl(205deg 69% 49%);
     --purple: hsl(237deg 43% 60%);
@@ -134,9 +134,11 @@ h3 {
     margin: 40px;
     border-radius: 15px;
     padding: 30px;
+    font-weight: bolder;
     box-shadow: 0px 0px 32px var(--background);
     transition: all 0.6s ease-in-out;
     * {
+        font-weight: bolder;
         transition: all 0.6s ease-in-out;
     }
 }
@@ -161,6 +163,25 @@ h3 {
     line-height: 2rem;
     letter-spacing: 1px;
     text-wrap: pretty;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+    width: calc(100% - 100px);
+    max-width: 800px;
+    padding: 50px;
+}
+
+.footer * {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: normal;
 }
 
 @media (max-width: 768px) {
