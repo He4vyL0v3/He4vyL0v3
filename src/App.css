@@ -197,13 +197,12 @@ h3 {
     gap: 20px;
     font-size: 1.1rem;
     font-weight: bolder;
-    opacity: 0.7;
-    color: var(--green);
+    color: var(--red);
     z-index: 0;
     * {
         font-family: "Roboto Condensed";
         font-size: 1.1rem;
-        color: var(--green);
+        color: var(--red);
         font-weight: bolder;
     }
 }

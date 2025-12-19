@@ -12,7 +12,7 @@ function Welcome() {
         PAYLOAD: <p className="blured-text">meterpreter_reverse_tcp</p>
       </div>
       <div className="float-text" style={{ bottom: "20%", right: "15%" }}>
-        IP: <p className="blured-text">0.0.0.0</p>
+        TARGET IP: <p className="blured-text">212.192.156.40</p>
       </div>
       <div className="float-text" style={{ top: "30%", left: "64%" }}>
         BSSID: <p className="blured-text">EA:A3:C4:1B:A2:85</p>
@@ -24,10 +24,13 @@ function Welcome() {
         USERNAME: <p className="blured-text">ADMIN</p>
       </div>
       <div className="float-text" style={{ bottom: "16.4%", left: "30%" }}>
-        DORKING:{" "}
+        DORKING:
         <p className="blured-text">
           account.php?action= iurl:”account.php?action=”
         </p>
+      </div>
+      <div className="float-text" style={{ top: "25%", left: "30%" }}>
+        rkn.gov.ru fuck you
       </div>
     </div>
   );
