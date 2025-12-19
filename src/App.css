@@ -196,13 +196,14 @@ h3 {
     justify-content: center;
     font-family: "Roboto Condensed";
     gap: 20px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     color: var(--green);
     z-index: 0;
+    opacity: 0.5;
     * {
         font-family: "Roboto Condensed";
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         color: var(--green);
         font-weight: bolder;
     }
