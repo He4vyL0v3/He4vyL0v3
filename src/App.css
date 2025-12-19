@@ -197,12 +197,12 @@ h3 {
     gap: 20px;
     font-size: 1.1rem;
     font-weight: bolder;
-    color: var(--red);
+    color: var(--green);
     z-index: 0;
     * {
         font-family: "Roboto Condensed";
         font-size: 1.1rem;
-        color: var(--red);
+        color: var(--green);
         font-weight: bolder;
     }
 }
@@ -221,6 +221,9 @@ h3 {
 
 @media (max-width: 1000px) {
     .float-text {
-        display: none;
+        font-size: 0.7rem;
+        * {
+            font-size: 0.7rem;
+        }
     }
 }
