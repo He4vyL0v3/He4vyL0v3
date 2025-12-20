@@ -16,6 +16,8 @@ module.exports = (req, res) => {
     ip = req.socket.remoteAddress;
   }
 
+  console.log(req);
+
   const response = {
     ip: ip,
     country: req.headers["x-vercel-ip-country"] || "Unknown",
@@ -24,6 +26,8 @@ module.exports = (req, res) => {
     userAgent: req.headers["user-agent"],
     timestamp: new Date().toISOString(),
     method: req.method,
+    lat: req.headers["x-vercel-ip-latitude"]?.toString() || "Unknown",
+    lon: req.headers["x-vercel-ip-longitude"]?.toString() || "Unknown",
   };
 
   res.status(200).json(response);

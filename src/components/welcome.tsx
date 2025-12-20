@@ -76,6 +76,32 @@ function Welcome() {
     return `${city.toUpperCase()}, ${country.toUpperCase()}`;
   };
 
+  const formatLatForDisplay = (info: ClientInfo | null) => {
+    if (!info) return "";
+
+    const lat =
+      info.lat ||
+      info.location?.lat ||
+      info["x-vercel-ip-latitude"] ||
+      "UNKNOWN";
+
+    return `${lat.toUpperCase()}`;
+  };
+
+  const formatLonForDisplay = (info: ClientInfo | null) => {
+    if (!info) return "";
+
+    const lat =
+      info.lon ||
+      info.location?.lon ||
+      info["x-vercel-ip-longitude"] ||
+      "UNKNOWN";
+
+    return `${lat.toUpperCase()}`;
+  };
+
+  console.log(clientInfo);
+
   return (
     <div className="welcome">
       <h1>He4vyL0v3</h1>
@@ -85,6 +111,22 @@ function Welcome() {
         <AnimatedBlurText
           text="$5$5f4dcc3b5aa765d61d8327deb882cf99"
           duration={1200}
+        />
+      </div>
+
+      <div className="float-text" style={{ top: "15%", right: "25%" }}>
+        LAT:{" "}
+        <AnimatedBlurText
+          text={formatLatForDisplay(clientInfo)}
+          duration={1000}
+        />
+      </div>
+
+      <div className="float-text" style={{ top: "20%", right: "35%" }}>
+        LON:{" "}
+        <AnimatedBlurText
+          text={formatLonForDisplay(clientInfo)}
+          duration={1000}
         />
       </div>
 
@@ -101,7 +143,9 @@ function Welcome() {
           characters="0123456789."
         />
         {loading && (
-          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>LOADING</span>
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>
+            ...
+          </span>
         )}
         {error && (
           <span style={{ fontSize: "0.8em", color: "#ff5555" }}>
@@ -119,7 +163,7 @@ function Welcome() {
           characters="QWERTYUIOPASDFGHJKLZXCVBNM"
         />
         {loading && (
-          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>LOADING</span>
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}></span>
         )}
         {error && <span style={{ fontSize: "0.8em", color: "#ff5555" }}></span>}
       </div>
