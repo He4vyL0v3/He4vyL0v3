@@ -24,7 +24,7 @@ function Welcome() {
         const contentType = response.headers.get("content-type");
         if (!contentType?.includes("application/json")) {
           const text = await response.text();
-          console.warn("API вернул не JSON:", text.slice(0, 100));
+          console.warn("API NOT JSON:", text.slice(0, 100));
           setClientInfo({ ip: "Unknown", error: "Invalid response format" });
           return;
         }
@@ -101,7 +101,7 @@ function Welcome() {
           characters="0123456789."
         />
         {loading && (
-          <span style={{ fontSize: "0.8em", opacity: 0.7 }}> (loading...)</span>
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>LOADING</span>
         )}
         {error && (
           <span style={{ fontSize: "0.8em", color: "#ff5555" }}>
@@ -118,7 +118,9 @@ function Welcome() {
           duration={800}
           characters="QWERTYUIOPASDFGHJKLZXCVBNM"
         />
-        {loading && <span style={{ fontSize: "0.8em", opacity: 0.7 }}></span>}
+        {loading && (
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>LOADING</span>
+        )}
         {error && <span style={{ fontSize: "0.8em", color: "#ff5555" }}></span>}
       </div>
 
