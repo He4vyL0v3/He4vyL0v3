@@ -11,21 +11,21 @@ const projects_data = {
     },
     {
       id: 1,
-      title: "GhostlyGrabber",
-      info: "A utility for automatically downloading media files from Telegram",
-      description:
-        "A utility for automatically downloading media files from Telegram channels and chats with convenient storage and organization of content",
-      image: "/images/grabber.png",
-      link: "https://github.com/He4vyL0v3/GhostlyGrabber/",
-    },
-    {
-      id: 2,
       title: "IStealU",
       info: "Keylogger with sending logs via Telegram API",
       description:
         "IStealU is a spyware program for Windows designed to intercept and log user keystrokes, as well as send logs to Telegram via the Telegram API",
       image: "/images/IStealU.png",
       link: "https://github.com/He4vyL0v3/IStealU/",
+    },
+    {
+      id: 2,
+      title: "GhostlyGrabber",
+      info: "A utility for automatically downloading media files from Telegram",
+      description:
+        "A utility for automatically downloading media files from Telegram channels and chats with convenient storage and organization of content",
+      image: "/images/grabber.png",
+      link: "https://github.com/He4vyL0v3/GhostlyGrabber/",
     },
     {
       id: 3,

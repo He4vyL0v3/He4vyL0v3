@@ -4,7 +4,7 @@ import projects_data from "./../data/projects";
 function Projects() {
   return (
     <div className="content">
-      <h2 style={{ textAlign: "left" }}>// SOFT</h2>
+      <h2 style={{ textAlign: "left" }}>// WE CREATED THIS:</h2>
       {projects_data.projects.map((project) => (
         <a href={project.link} target="_blank" rel="noopener noreferrer">
           <div key={project.id} className="project-card">
