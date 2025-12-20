@@ -115,7 +115,7 @@ function Welcome() {
       </div>
 
       <div className="float-text" style={{ top: "15%", right: "25%" }}>
-        LAT:{" "}
+        LAT: {loading && "LOADING"}
         <AnimatedBlurText
           text={formatLatForDisplay(clientInfo)}
           duration={1000}
@@ -123,7 +123,7 @@ function Welcome() {
       </div>
 
       <div className="float-text" style={{ top: "20%", right: "35%" }}>
-        LON:{" "}
+        LON: {loading && "LOADING"}
         <AnimatedBlurText
           text={formatLonForDisplay(clientInfo)}
           duration={1000}
