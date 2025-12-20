@@ -227,3 +227,20 @@ h3 {
     }
   }
 }
+
+.blured-text {
+  display: inline-block;
+  font-family: "Roboto Condensed", monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.blured-text.animating {
+  opacity: 0.8;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+.float-text:hover {
+  opacity: 1;
+  text-shadow: 0 0 5px #00ff00;
+}

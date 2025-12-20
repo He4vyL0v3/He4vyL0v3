@@ -6,7 +6,12 @@ function Projects() {
     <div className="content">
       <h2 style={{ textAlign: "left" }}>// WE CREATED THIS:</h2>
       {projects_data.projects.map((project) => (
-        <a href={project.link} target="_blank" rel="noopener noreferrer">
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          key={project.id}
+        >
           <div key={project.id} className="project-card">
             <h3>{project.title}</h3>
             <p>{project.description}</p>
