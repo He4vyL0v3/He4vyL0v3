@@ -131,20 +131,20 @@ function Welcome() {
       </div>
 
       <div className="float-text" style={{ top: "35%", left: "30%" }}>
-        PAYLOAD:{" "}
+        USING PAYLOAD:{" "}
         <AnimatedBlurText text="meterpreter_reverse_tcp" duration={1000} />
       </div>
 
       <div className="float-text" style={{ bottom: "20%", right: "5%" }}>
-        TARGET IP:{" "}
+        SCANNING IP:{" "}
         <AnimatedBlurText
           text={formatIpForDisplay(clientInfo)}
           duration={800}
-          characters="0123456789."
+          characters="0123456789.#"
         />
         {loading && (
           <span style={{ fontSize: "0.8em", opacity: 0.7 }}>
-            ...
+            ###.###.###.###
           </span>
         )}
         {error && (
@@ -160,10 +160,12 @@ function Welcome() {
         <AnimatedBlurText
           text={formatCityForDisplay(clientInfo)}
           duration={800}
-          characters="QWERTYUIOPASDFGHJKLZXCVBNM"
+          characters="QWERTYUIOPASDFGHJKLZXCVBNM#"
         />
         {loading && (
-          <span style={{ fontSize: "0.8em", opacity: 0.7 }}></span>
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>
+            ##################
+          </span>
         )}
         {error && <span style={{ fontSize: "0.8em", color: "#ff5555" }}></span>}
       </div>
