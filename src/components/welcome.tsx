@@ -203,28 +203,6 @@ function Welcome() {
           characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         />
       </div>
-
-      {process.env.NODE_ENV === "development" && clientInfo && (
-        <div
-          style={{
-            position: "fixed",
-            bottom: "10px",
-            right: "10px",
-            background: "rgba(0,0,0,0.8)",
-            color: "#0f0",
-            padding: "10px",
-            fontSize: "10px",
-            maxWidth: "300px",
-            maxHeight: "200px",
-            overflow: "auto",
-            zIndex: 1000,
-            fontFamily: "monospace",
-          }}
-        >
-          <strong>Debug Info:</strong>
-          <pre>{JSON.stringify(clientInfo, null, 2)}</pre>
-        </div>
-      )}
     </div>
   );
 }
