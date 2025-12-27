@@ -131,8 +131,7 @@ function Welcome() {
       </div>
 
       <div className="float-text" style={{ top: "35%", left: "30%" }}>
-        USING PAYLOAD:{" "}
-        <AnimatedBlurText text="meterpreter_reverse_tcp" duration={1000} />
+        <AnimatedBlurText text="Fuck the society" duration={1000} />
       </div>
 
       <div className="float-text" style={{ bottom: "20%", right: "5%" }}>
