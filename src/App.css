@@ -148,6 +148,12 @@ h3 {
     * {
         color: var(--background);
     }
+    p {
+        color: var(--background);
+    }
+    h3 {
+        color: var(--background);
+    }
 }
 
 .project-card h3 {
