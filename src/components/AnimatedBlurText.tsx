@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 interface AnimatedBlurTextProps {
   text: string;
@@ -21,12 +21,13 @@ const AnimatedBlurText: React.FC<AnimatedBlurTextProps> = ({
   const [isAnimating, setIsAnimating] = useState(false);
   const animationRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
+  const animateRef = useRef<((timestamp: number) => void) | null>(null);
 
-  const getRandomCharacter = () => {
+  const getRandomCharacter = useCallback(() => {
     return characters[Math.floor(Math.random() * characters.length)];
-  };
+  }, [characters]);
 
-  const animate = (timestamp: number) => {
+  const animate = useCallback((timestamp: number) => {
     if (!startTimeRef.current) {
       startTimeRef.current = timestamp;
       if (onAnimationStart) onAnimationStart();
@@ -47,15 +48,17 @@ const AnimatedBlurText: React.FC<AnimatedBlurTextProps> = ({
     setDisplayText(intermediateText);
 
     if (progress < 1) {
-      animationRef.current = requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animateRef.current!);
     } else {
       setDisplayText(text);
       setIsAnimating(false);
       if (onAnimationEnd) onAnimationEnd();
     }
-  };
+  }, [text, duration, onAnimationStart, onAnimationEnd, getRandomCharacter]);
 
-  const startAnimation = () => {
+  animateRef.current = animate;
+
+  const startAnimation = useCallback(() => {
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
     }
@@ -63,8 +66,8 @@ const AnimatedBlurText: React.FC<AnimatedBlurTextProps> = ({
     setIsAnimating(true);
     setDisplayText("");
     startTimeRef.current = null;
-    animationRef.current = requestAnimationFrame(animate);
-  };
+    animationRef.current = requestAnimationFrame(animateRef.current!);
+  }, []);
 
   useEffect(() => {
     startAnimation();
@@ -74,7 +77,7 @@ const AnimatedBlurText: React.FC<AnimatedBlurTextProps> = ({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [text, duration]);
+  }, [text, duration, startAnimation]);
 
   const handleClick = () => {
     startAnimation();
