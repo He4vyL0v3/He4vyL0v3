@@ -24,6 +24,7 @@ module.exports = (req, res) => {
     city: req.headers["x-vercel-ip-city"] || "Unknown",
     region: req.headers["x-vercel-ip-region"] || "Unknown",
     userAgent: req.headers["user-agent"],
+    referer: req.headers["referer"] || "Direct",
     timestamp: new Date().toISOString(),
     method: req.method,
     lat: req.headers["x-vercel-ip-latitude"]?.toString() || "Unknown",

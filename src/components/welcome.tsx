@@ -30,7 +30,22 @@ function Welcome() {
         }
 
         const data = await response.json();
-        setClientInfo(data);
+
+        const clientData = {
+          ...data,
+          platform:
+            typeof navigator !== "undefined" ? navigator.platform : "Unknown",
+          timezone:
+            typeof Intl !== "undefined"
+              ? Intl.DateTimeFormat().resolvedOptions().timeZone
+              : "Unknown",
+          screenResolution:
+            typeof window !== "undefined"
+              ? `${window.screen.width}x${window.screen.height}`
+              : "Unknown",
+        };
+
+        setClientInfo(clientData);
         setError(null);
       } catch (err) {
         console.error("Error fetching client info:", err);
@@ -151,7 +166,7 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "30%", left: "64%" }}>
+      <div className="float-text" style={{ bottom: "30%", left: "60%" }}>
         LOCATION:{" "}
         <AnimatedBlurText
           text={formatCityForDisplay(clientInfo)}
@@ -165,6 +180,33 @@ function Welcome() {
         <AnimatedBlurText
           text={`'${formatIpForDisplay(clientInfo)}'`}
           duration={1300}
+        />
+      </div>
+
+      <div className="float-text" style={{ bottom: "25%", left: "15%" }}>
+        REFERER:{" "}
+        <AnimatedBlurText
+          text={clientInfo?.referer || "DIRECT"}
+          duration={950}
+          characters="QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm.-_:/"
+        />
+      </div>
+
+      <div className="float-text" style={{ top: "25%", right: "10%" }}>
+        PLATFORM:{" "}
+        <AnimatedBlurText
+          text={(clientInfo?.platform || "UNKNOWN").toUpperCase()}
+          duration={800}
+          characters="QWERTYUIOPASDFGHJKLZXCVBNM0123456789"
+        />
+      </div>
+
+      <div className="float-text" style={{ bottom: "5%", right: "30%" }}>
+        TIMEZONE:{" "}
+        <AnimatedBlurText
+          text={(clientInfo?.timezone || "UNKNOWN").toUpperCase()}
+          duration={1050}
+          characters="QWERTYUIOPASDFGHJKLZXCVBNM0123456789/_"
         />
       </div>
     </div>
