@@ -157,7 +157,7 @@ function Welcome() {
         )}
       </div>
 
-      <div className="float-text" style={{ top: "30%", left: "55%" }}>
+      <div className="float-text" style={{ top: "33%", left: "25%" }}>
         BSSID:{" "}
         <AnimatedBlurText
           text="EA:A3:C4:1B:A2:85"
@@ -183,7 +183,7 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "25%", left: "15%" }}>
+      <div className="float-text" style={{ bottom: "25%", left: "20%" }}>
         REFERER:{" "}
         <AnimatedBlurText
           text={clientInfo?.referer || "DIRECT"}
@@ -201,7 +201,7 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "5%", right: "30%" }}>
+      <div className="float-text" style={{ bottom: "5%", right: "5%" }}>
         TIMEZONE:{" "}
         <AnimatedBlurText
           text={(clientInfo?.timezone || "UNKNOWN").toUpperCase()}
