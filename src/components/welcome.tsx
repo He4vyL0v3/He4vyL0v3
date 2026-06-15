@@ -65,100 +65,86 @@ function Welcome() {
 
   const formatIpForDisplay = (info: ClientInfo | null) => {
     if (!info) return "";
-
     const ip = info.ip || info.xVercelIp || info.xForwardedFor;
-
     if (ip) {
       const cleanIp = typeof ip === "string" ? ip.split(",")[0].trim() : ip;
       return cleanIp;
     }
-
     return "0.0.0.0";
   };
 
   const formatCityForDisplay = (info: ClientInfo | null) => {
     if (!info) return "";
-
     const city =
       info.city || info.location?.city || info["x-vercel-ip-city"] || "UNKNOWN";
-
     const country =
       info.country ||
       info.location?.country ||
       info["x-vercel-ip-country"] ||
       "XX";
-
     return `${city.toUpperCase()}, ${country.toUpperCase()}`;
   };
 
   const formatLatForDisplay = (info: ClientInfo | null) => {
     if (!info) return "";
-
     const lat =
       info.lat ||
       info.location?.lat ||
       info["x-vercel-ip-latitude"] ||
       "UNKNOWN";
-
     return `${lat.toUpperCase()}`;
   };
 
   const formatLonForDisplay = (info: ClientInfo | null) => {
     if (!info) return "";
-
     const lat =
       info.lon ||
       info.location?.lon ||
       info["x-vercel-ip-longitude"] ||
       "UNKNOWN";
-
     return `${lat.toUpperCase()}`;
   };
 
-  console.log(clientInfo);
-
   return (
     <div className="welcome">
+      <div className="title-line">
+        <span className="prompt">$</span>
+        <span className="cmd">./he4vyl0v3 --scan --target {clientInfo?.ip || "unknown"}</span>
+      </div>
+
       <h1>He4vyL0v3</h1>
 
-      <div className="float-text" style={{ top: "15%", right: "25%" }}>
-        LAT: {loading && "LOADING"}
+      <div className="subtitle-line">{'//'} SECURITY RESEARCH &amp; PENTESTING</div>
+
+      <div className="float-text float-lat">
+        <span className="float-label">LAT</span>
         <AnimatedBlurText
           text={formatLatForDisplay(clientInfo)}
           duration={1000}
         />
       </div>
 
-      <div className="float-text" style={{ top: "20%", left: "25%" }}>
-        LON: {loading && "LOADING"}
+      <div className="float-text float-lon">
+        <span className="float-label">LON</span>
         <AnimatedBlurText
           text={formatLonForDisplay(clientInfo)}
           duration={1000}
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "20%", right: "5%" }}>
-        SCANNING IP:{" "}
+      <div className="float-text float-ip">
+        <span className="float-label">TARGET</span>
         <AnimatedBlurText
           text={formatIpForDisplay(clientInfo)}
           duration={800}
           characters="0123456789.#"
         />
-        {loading && (
-          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>
-            ###.###.###.###
-          </span>
-        )}
-        {error && (
-          <span style={{ fontSize: "0.8em", color: "#ff5555" }}>
-            {" "}
-            ({error})
-          </span>
-        )}
+        {loading && <span className="float-loading">###.###.###.###</span>}
+        {error && <span className="float-error">({error})</span>}
       </div>
 
-      <div className="float-text" style={{ top: "33%", left: "25%" }}>
-        BSSID:{" "}
+      <div className="float-text float-bssid">
+        <span className="float-label">BSSID</span>
         <AnimatedBlurText
           text="EA:A3:C4:1B:A2:85"
           duration={900}
@@ -166,8 +152,8 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "30%", left: "60%" }}>
-        LOCATION:{" "}
+      <div className="float-text float-location">
+        <span className="float-label">LOCATION</span>
         <AnimatedBlurText
           text={formatCityForDisplay(clientInfo)}
           duration={1100}
@@ -175,16 +161,16 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "13.4%", left: "30%" }}>
-        DORKING:{" "}
+      <div className="float-text float-dorking">
+        <span className="float-label">DORKING</span>
         <AnimatedBlurText
           text={`'${formatIpForDisplay(clientInfo)}'`}
           duration={1300}
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "25%", left: "20%" }}>
-        REFERER:{" "}
+      <div className="float-text float-referer">
+        <span className="float-label">REFERER</span>
         <AnimatedBlurText
           text={clientInfo?.referer || "DIRECT"}
           duration={950}
@@ -192,8 +178,8 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ top: "25%", right: "10%" }}>
-        PLATFORM:{" "}
+      <div className="float-text float-platform">
+        <span className="float-label">PLATFORM</span>
         <AnimatedBlurText
           text={(clientInfo?.platform || "UNKNOWN").toUpperCase()}
           duration={800}
@@ -201,8 +187,8 @@ function Welcome() {
         />
       </div>
 
-      <div className="float-text" style={{ bottom: "5%", right: "5%" }}>
-        TIMEZONE:{" "}
+      <div className="float-text float-timezone">
+        <span className="float-label">TZ</span>
         <AnimatedBlurText
           text={(clientInfo?.timezone || "UNKNOWN").toUpperCase()}
           duration={1050}
